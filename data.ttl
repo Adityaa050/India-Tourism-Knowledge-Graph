@@ -1,0 +1,220 @@
+@prefix it: <http://example.org/india-tourism#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# --- 1. Ontology (Rules) ---
+
+# Classes
+it:TouristAttraction rdf:type rdfs:Class .
+it:City rdf:type rdfs:Class .
+it:State rdf:type rdfs:Class .
+it:AttractionType rdf:type rdfs:Class .
+it:Restaurant rdf:type rdfs:Class .
+
+# Properties
+it:locatedIn rdf:type rdf:Property ;
+    rdfs:label "Located In" ;
+    rdfs:range it:City .
+it:cityInState rdf:type rdf:Property ;
+    rdfs:label "City in State" ;
+    rdfs:domain it:City ;
+    rdfs:range it:State .
+it:hasType rdf:type rdf:Property ;
+    rdfs:label "Has Type" ;
+    rdfs:domain it:TouristAttraction ;
+    rdfs:range it:AttractionType .
+it:bestTimeToVisit rdf:type rdf:Property ;
+    rdfs:label "Best Time To Visit" .
+it:servesCuisine rdf:type rdf:Property ;
+    rdfs:label "Serves Cuisine" ;
+    rdfs:domain it:Restaurant .
+
+# --- 2. Attraction Types (Instances) ---
+it:Monument rdf:type it:AttractionType .
+it:Beach rdf:type it:AttractionType .
+it:Fort rdf:type it:AttractionType .
+it:Temple rdf:type it:AttractionType .
+it:Lake rdf:type it:AttractionType .
+it:Palace rdf:type it:AttractionType .
+it:NationalPark rdf:type it:AttractionType .
+it:Garden rdf:type it:AttractionType .
+it:HillStation rdf:type it:AttractionType .
+it:Ashram rdf:type it:AttractionType .
+
+# --- 3. Data (Facts) ---
+
+# --- States & UTs ---
+it:UP rdf:type it:State ; rdfs:label "Uttar Pradesh" .
+it:Rajasthan rdf:type it:State ; rdfs:label "Rajasthan" .
+it:TamilNadu rdf:type it:State ; rdfs:label "Tamil Nadu" .
+it:Goa rdf:type it:State ; rdfs:label "Goa" .
+it:Maharashtra rdf:type it:State ; rdfs:label "Maharashtra" .
+it:Kerala rdf:type it:State ; rdfs:label "Kerala" .
+it:WestBengal rdf:type it:State ; rdfs:label "West Bengal" .
+it:Gujarat rdf:type it:State ; rdfs:label "Gujarat" .
+it:HimachalPradesh rdf:type it:State ; rdfs:label "Himachal Pradesh" .
+it:Karnataka rdf:type it:State ; rdfs:label "Karnataka" .
+it:Delhi rdf:type it:State ; rdfs:label "Delhi" .
+it:Punjab rdf:type it:State ; rdfs:label "Punjab" .
+
+# --- Cities ---
+it:Agra rdf:type it:City ; rdfs:label "Agra" ; it:cityInState it:UP .
+it:Jaipur rdf:type it:City ; rdfs:label "Jaipur" ; it:cityInState it:Rajasthan .
+it:Udaipur rdf:type it:City ; rdfs:label "Udaipur" ; it:cityInState it:Rajasthan .
+it:Chennai rdf:type it:City ; rdfs:label "Chennai" ; it:cityInState it:TamilNadu .
+it:Panaji rdf:type it:City ; rdfs:label "Panaji" ; it:cityInState it:Goa .
+it:Mumbai rdf:type it:City ; rdfs:label "Mumbai" ; it:cityInState it:Maharashtra .
+it:Kochi rdf:type it:City ; rdfs:label "Kochi" ; it:cityInState it:Kerala .
+it:Munnar rdf:type it:City ; rdfs:label "Munnar" ; it:cityInState it:Kerala .
+it:Kolkata rdf:type it:City ; rdfs:label "Kolkata" ; it:cityInState it:WestBengal .
+it:Ahmedabad rdf:type it:City ; rdfs:label "Ahmedabad" ; it:cityInState it:Gujarat .
+it:Shimla rdf:type it:City ; rdfs:label "Shimla" ; it:cityInState it:HimachalPradesh .
+it:Bengaluru rdf:type it:City ; rdfs:label "Bengaluru" ; it:cityInState it:Karnataka .
+it:Mysuru rdf:type it:City ; rdfs:label "Mysuru" ; it:cityInState it:Karnataka .
+it:NewDelhi rdf:type it:City ; rdfs:label "New Delhi" ; it:cityInState it:Delhi .
+it:Amritsar rdf:type it:City ; rdfs:label "Amritsar" ; it:cityInState it:Punjab .
+
+
+# --- Attractions ---
+it:TajMahal rdf:type it:TouristAttraction ;
+    rdfs:label "Taj Mahal" ;
+    it:locatedIn it:Agra ;
+    it:hasType it:Monument ;
+    it:bestTimeToVisit "October to March" .
+
+it:HawaMahal rdf:type it:TouristAttraction ;
+    rdfs:label "Hawa Mahal" ;
+    it:locatedIn it:Jaipur ;
+    it:hasType it:Fort ;
+    it:bestTimeToVisit "September to February" .
+
+it:MarinaBeach rdf:type it:TouristAttraction ;
+    rdfs:label "Marina Beach" ;
+    it:locatedIn it:Chennai ;
+    it:hasType it:Beach ;
+    it:bestTimeToVisit "November to February" .
+
+it:CalanguteBeach rdf:type it:TouristAttraction ;
+    rdfs:label "Calangute Beach" ;
+    it:locatedIn it:Panaji ;
+    it:hasType it:Beach ;
+    it:bestTimeToVisit "November to March" .
+
+it:GatewayOfIndia rdf:type it:TouristAttraction ;
+    rdfs:label "Gateway of India" ;
+    it:locatedIn it:Mumbai ;
+    it:hasType it:Monument ;
+    it:bestTimeToVisit "October to March" .
+
+it:CityPalace rdf:type it:TouristAttraction ;
+    rdfs:label "City Palace" ;
+    it:locatedIn it:Udaipur ;
+    it:hasType it:Fort ;
+    it:bestTimeToVisit "September to March" .
+
+it:LakePichola rdf:type it:TouristAttraction ;
+    rdfs:label "Lake Pichola" ;
+    it:locatedIn it:Udaipur ;
+    it:hasType it:Lake ;
+    it:bestTimeToVisit "September to March" .
+
+it:MattancherryPalace rdf:type it:TouristAttraction ;
+    rdfs:label "Mattancherry Palace" ;
+    it:locatedIn it:Kochi ;
+    it:hasType it:Palace ;
+    it:bestTimeToVisit "September to March" .
+
+it:EravikulamPark rdf:type it:TouristAttraction ;
+    rdfs:label "Eravikulam National Park" ;
+    it:locatedIn it:Munnar ;
+    it:hasType it:NationalPark ;
+    it:bestTimeToVisit "September to November" .
+
+it:VictoriaMemorial rdf:type it:TouristAttraction ;
+    rdfs:label "Victoria Memorial" ;
+    it:locatedIn it:Kolkata ;
+    it:hasType it:Monument ;
+    it:bestTimeToVisit "October to March" .
+
+it:SabarmatiAshram rdf:type it:TouristAttraction ;
+    rdfs:label "Sabarmati Ashram" ;
+    it:locatedIn it:Ahmedabad ;
+    it:hasType it:Ashram ;
+    it:bestTimeToVisit "Anytime (visit in morning)" .
+
+it:Kufri rdf:type it:TouristAttraction ;
+    rdfs:label "Kufri" ;
+    it:locatedIn it:Shimla ;
+    it:hasType it:HillStation ;
+    it:bestTimeToVisit "April to June" .
+
+it:LalbaghGarden rdf:type it:TouristAttraction ;
+    rdfs:label "Lalbagh Botanical Garden" ;
+    it:locatedIn it:Bengaluru ;
+    it:hasType it:Garden ;
+    it:bestTimeToVisit "All year" .
+
+it:MysorePalace rdf:type it:TouristAttraction ;
+    rdfs:label "Mysore Palace" ;
+    it:locatedIn it:Mysuru ;
+    it:hasType it:Palace ;
+    it:bestTimeToVisit "October to March" .
+
+it:IndiaGate rdf:type it:TouristAttraction ;
+    rdfs:label "India Gate" ;
+    it:locatedIn it:NewDelhi ;
+    it:hasType it:Monument ;
+    it:bestTimeToVisit "October to March" .
+
+it:QutubMinar rdf:type it:TouristAttraction ;
+    rdfs:label "Qutub Minar" ;
+    it:locatedIn it:NewDelhi ;
+    it:hasType it:Monument ;
+    it:bestTimeToVisit "October to March" .
+
+it:GoldenTemple rdf:type it:TouristAttraction ;
+    rdfs:label "Golden Temple" ;
+    it:locatedIn it:Amritsar ;
+    it:hasType it:Temple ;
+    it:bestTimeToVisit "November to March" .
+
+# --- Restaurants ---
+it:PinchOfSpice rdf:type it:Restaurant ;
+    rdfs:label "Pinch of Spice" ;
+    it:locatedIn it:Agra ;
+    it:servesCuisine "Mughlai" .
+
+it:ChokhiDhani rdf:type it:Restaurant ;
+    rdfs:label "Chokhi Dhani" ;
+    it:locatedIn it:Jaipur ;
+    it:servesCuisine "Rajasthani" .
+
+it:LeopoldCafe rdf:type it:Restaurant ;
+    rdfs:label "Leopold Cafe" ;
+    it:locatedIn it:Mumbai ;
+    it:servesCuisine "Continental" .
+
+it:PeterCat rdf:type it:Restaurant ;
+    rdfs:label "Peter Cat" ;
+    it:locatedIn it:Kolkata ;
+    it:servesCuisine "Continental" .
+
+it:GordhanThaal rdf:type it:Restaurant ;
+    rdfs:label "Gordhan Thaal" ;
+    it:locatedIn it:Ahmedabad ;
+    it:servesCuisine "Gujarati" .
+
+it:MTR rdf:type it:Restaurant ;
+    rdfs:label "Mavalli Tiffin Rooms (MTR)" ;
+    it:locatedIn it:Bengaluru ;
+    it:servesCuisine "South Indian" .
+
+it:Karims rdf:type it:Restaurant ;
+    rdfs:label "Karim's" ;
+    it:locatedIn it:NewDelhi ;
+    it:servesCuisine "Mughlai" .
+
+it:KesarDaDhaba rdf:type it:Restaurant ;
+    rdfs:label "Kesar Da Dhabs" ;
+    it:locatedIn it:Amritsar ;
+    it:servesCuisine "Punjabi" .
